@@ -17,7 +17,7 @@ function App() {
     formData.append('user_id', userId);
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/upload', formData, {
+      const response = await axios.post('https://rag-backend-by4h.onrender.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -36,7 +36,7 @@ function App() {
   const handleAskQuestion = async (question) => {
     try {
       console.log('vvvvv', question);
-      const response = await axios.post('http://127.0.0.1:5000/ask', { question, user_id: userId });
+      const response = await axios.post('https://rag-backend-by4h.onrender.com/ask', { question, user_id: userId });
       console.log('ans', response);
       return response.data.answer;
     } catch (error) {
