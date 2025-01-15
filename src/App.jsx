@@ -35,7 +35,7 @@ const handleFileUpload = async (file) => {
     alert(response.data.message);
     setIsFileUploaded(true);
   } catch (error) {
-    console.error('Error uploading PDF:', error.response.data.error);
+    // console.error('Error uploading PDF:', error.response.data.error);
     alert('Error uploading PDF: ');
   }
 };
@@ -50,7 +50,7 @@ const handleFileUpload = async (file) => {
       console.log('ans', response);
       return response.data.answer;
     } catch (error) {
-      console.error('Error asking question:', error.response.data.error);
+      // console.error('Error asking question:', error.response.data.error);
       alert('Error asking question: ');
     }
   };

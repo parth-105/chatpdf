@@ -26,14 +26,14 @@ export function Chat({ onAskQuestion }) {
   
     const newQuestion = question;
     setQuestion('');
-    console.log('ddd', newQuestion);
+    // console.log('ddd', newQuestion);
     setMessages(prev => [...prev, { type: 'user', content: newQuestion }]);
     setIsLoading(true);
   
     try {
-      console.log('rrrrr', newQuestion);
+      // console.log('rrrrr', newQuestion);
       const answer = await onAskQuestion(newQuestion);
-      console.log("ajsx", answer);
+      // console.log("ajsx", answer);
       setMessages(prev => [...prev, { type: 'assistant', content: answer }]);
     } catch (error) {
       setMessages(prev => [
