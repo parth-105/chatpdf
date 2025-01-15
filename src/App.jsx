@@ -9,27 +9,37 @@ function App() {
   const [userId, setUserId] = useState(null);
   const [isFileUploaded, setIsFileUploaded] = useState(false);
 
-  const handleFileUpload = async (file) => {
- 
+const handleFileUpload = async (file) => {
+  // Check if the file is a PDF
+  if (file.type !== 'application/pdf') {
+    alert('Only PDF files are allowed.');
+    return;
+  }
 
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('user_id', userId);
+  // Check if the file size is less than 500 KB
+  if (file.size > 500 * 1024) {
+    alert('File size must be less than 500 KB.');
+    return;
+  }
 
-    try {
-      const response = await axios.post('https://rag-backend-by4h.onrender.com/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      alert(response.data.message);
-      setIsFileUploaded(true);
-    } catch (error) {
-      console.error('Error uploading PDF:', error.response.data.error);
-      alert('Error uploading PDF: ' + error.response.data.error);
-    }
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('user_id', userId);
 
-  };
+  try {
+    const response = await axios.post('https://rag-backend-by4h.onrender.com/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    alert(response.data.message);
+    setIsFileUploaded(true);
+  } catch (error) {
+    console.error('Error uploading PDF:', error.response.data.error);
+    alert('Error uploading PDF: ' + error.response.data.error);
+  }
+};
+
 
  
 

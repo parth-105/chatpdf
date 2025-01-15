@@ -54,7 +54,7 @@ export function FileUpload({ onFileUpload }: FileUploadProps) {
           <>
             <Upload className="w-12 h-12 text-gray-400" />
             <div className="text-center">
-              <p className="text-lg font-medium">Drag and drop your PDF here</p>
+              <p className="text-lg font-medium">Drag and drop your PDF here , file size must have size less than 500KB</p>
               <p className="text-sm text-gray-500">or</p>
               <label className="mt-2 cursor-pointer">
                 <span className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
