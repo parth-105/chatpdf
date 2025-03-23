@@ -118,6 +118,7 @@ function App() {
       const newUserId = generateUserId();
       localStorage.setItem('user_id', newUserId);
       setUserId(newUserId);
+      console.log('uid',userId)
     }
   }, []);
 
@@ -147,7 +148,7 @@ function App() {
       alert(response.data.message);
       setIsFileUploaded(true);
     } catch (error) {
-      alert('Error uploading PDF: ');
+      alert('Error uploading PDF: ',error.message);
     }
   };
 
